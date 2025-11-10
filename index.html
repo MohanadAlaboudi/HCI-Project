@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assistive Disabilities Awareness Website - Promoting empathy and inclusion through education">
+    <meta name="keywords" content="disabilities, awareness, inclusion, accessibility, autism, alzheimer, hearing, visual, physical">
+    <title>Assistive Disabilities Awareness</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Accessibility Toggle Button (this gets created by JavaScript) -->
+
+<!-- Accessibility Controls -->
+<div class="accessibility-controls">
+    <div class="accessibility-buttons">
+        <button id="increaseFont" title="Increase Font Size">A+</button>
+        <button id="decreaseFont" title="Decrease Font Size">A-</button>
+        <button id="highContrast" title="High Contrast Mode">High Contrast</button>
+        <button id="resetAccessibility" title="Reset Accessibility Settings">Reset</button>
+    </div>
+</div>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">♿</span>
+                Disability Awareness
+            </a>
+            <div class="hamburger" id="hamburger" aria-label="Toggle menu">☰</div>
+            <nav class="nav-menu-container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="disabilities.html">Disabilities</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <!-- SEARCH BAR REMOVED FROM HERE -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Rest of the index.html content remains the same -->
+    <!-- ... -->
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <h1 id="hero-title">Promoting Disability Awareness & Inclusion</h1>
+            <p>An educational platform designed to foster understanding, empathy, and inclusion for people with various
+                disabilities through accessible information and resources.</p>
+            <div class="hero-buttons">
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics" aria-labelledby="stats-title">
+        <div class="container">
+            <h2 id="stats-title" class="section-title">Why Disability Awareness Matters</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-text">of world's population lives with some form of disability</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-text">of disabilities are invisible to the eye</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1 in 6</div>
+                    <div class="stat-text">people experience significant disability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disabilities Preview Section -->
+    <section class="disabilities-preview" aria-labelledby="disabilities-preview-title">
+        <div class="container">
+            <h2 id="disabilities-preview-title" class="section-title">Explore Disabilities</h2>
+            <p class="section-subtitle">Learn about different disabilities and how to provide appropriate support and
+                understanding</p>
+
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-icon">🧩</div>
+                    <h3>Autism Spectrum</h3>
+                    <p>Understanding social interaction and communication differences</p>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-icon">🧠</div>
+                    <h3>Cognitive Disabilities</h3>
+                    <p>Alzheimer's, intellectual disabilities, and memory conditions</p>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-icon">👂</div>
+                    <h3>Sensory Disabilities</h3>
+                    <p>Hearing, visual impairments and sensory processing</p>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-icon">♿</div>
+                    <h3>Physical Disabilities</h3>
+                    <p>Mobility, dexterity, and physical functioning conditions</p>
+                </div>
+            </div>
+
+            <div class="preview-buttons">
+                <a href="disabilities.html" class="btn btn-primary">View All Disabilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" aria-labelledby="features-title">
+        <div class="container">
+            <h2 id="features-title" class="section-title">Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Detailed Information</h3>
+                    <p>Comprehensive guides for each disability with practical tips and strategies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♿</div>
+                    <h3>Accessibility First</h3>
+                    <p>Designed following WCAG 2.1 guidelines for maximum accessibility.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Works perfectly on all devices - desktop, tablet, and mobile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-Language Ready</h3>
+                    <p>Prepared for future Arabic/English language support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="about-preview" aria-labelledby="about-preview-title">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 id="about-preview-title">About Our Mission</h2>
+                    <p>This project aims to bridge the knowledge gap about disabilities by building a simple,
+                        educational, and accessible website that presents information about disabilities in a clear and
+                        friendly way.</p>
+                    <p>Our goal is to raise awareness about different types of disabilities and provide useful guidance
+                        on how to communicate, interact, and assist people with various conditions.</p>
+                    <div class="about-buttons">
+                        <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+                        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🌐</span>
+                        <p>Inclusion & Awareness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are a team dedicated to promoting disability awareness and inclusion through accessible
+                        education and resources.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="#disabilities">Disabilities</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@disabilityawareness.org</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Project Info</h3>
+                    <p>SE365 - Human Computer Interaction</p>
+                    <p>Section 1436</p>
+                    <p>Dr. Wajdi ALJEDAANI</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Assistive Disabilities Awareness Website. All rights reserved.</p>
+                    <p>Mohanad Alaboudi (221110940) & Turki Khaled Almarri (222211579)</p>
+                </div>
+                <div class="footer-accessibility">
+                    <button id="footerIncreaseFont" title="Increase Font Size">A+</button>
+                    <button id="footerHighContrast" title="High Contrast Mode">High Contrast</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/disability-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/accessibility.js"></script>
+</body>
+
+</html>
