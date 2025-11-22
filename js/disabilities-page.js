@@ -5,6 +5,8 @@ const disabilitiesSearchButton = document.getElementById('disabilitiesSearchButt
 const searchResultsInfo = document.getElementById('searchResultsInfo');
 const resultsCount = document.getElementById('resultsCount');
 const clearSearch = document.getElementById('clearSearch');
+const hamburger = document.getElementById('hamburger');
+const navMenuContainer = document.querySelector('.nav-menu-container');
 
 // Initialize the disabilities page
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,7 +14,36 @@ document.addEventListener('DOMContentLoaded', function() {
     setupDisabilitiesEventListeners();
     handleSearchParam();
     updateActiveNavLink();
+    setupNavToggle();
 });
+
+// Setup nav toggle for mobile (hamburger)
+function setupNavToggle() {
+    if (!hamburger) return;
+
+    hamburger.addEventListener('click', function() {
+        if (navMenuContainer) {
+            navMenuContainer.classList.toggle('active');
+        }
+        hamburger.setAttribute('aria-expanded', hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+    });
+
+    // Close when nav link clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (navMenuContainer) navMenuContainer.classList.remove('active');
+            if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(event) {
+        if (navMenuContainer && hamburger && !navMenuContainer.contains(event.target) && !hamburger.contains(event.target) && navMenuContainer.classList.contains('active')) {
+            navMenuContainer.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
 // Render disability cards for disabilities page
 function renderDisabilityCards(disabilitiesArray) {

@@ -2,6 +2,7 @@
 const disabilitiesGrid = document.getElementById('disabilitiesGrid');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const navMenuContainer = document.querySelector('.nav-menu-container');
 // REMOVE THESE LINES:
 // const searchInput = document.getElementById('searchInput');
 // const searchButton = document.getElementById('searchButton');
@@ -30,7 +31,10 @@ function setupEventListeners() {
     // Mobile menu toggle
     if (hamburger) {
         hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            // Toggle the container because the CSS targets .nav-menu-container.active
+            if (navMenuContainer) {
+                navMenuContainer.classList.toggle('active');
+            }
             hamburger.setAttribute('aria-expanded', 
                 hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
             );
@@ -63,7 +67,9 @@ function setupEventListeners() {
     if (navMenu) {
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
+                if (navMenuContainer) {
+                    navMenuContainer.classList.remove('active');
+                }
                 hamburger.setAttribute('aria-expanded', 'false');
             });
         });
@@ -71,11 +77,11 @@ function setupEventListeners() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (navMenu && hamburger && 
-            !navMenu.contains(event.target) && 
+        if (navMenuContainer && hamburger && 
+            !navMenuContainer.contains(event.target) && 
             !hamburger.contains(event.target) &&
-            navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
+            navMenuContainer.classList.contains('active')) {
+            navMenuContainer.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
         }
     });
@@ -131,8 +137,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             
             // Close mobile menu if open
-            if (navMenu && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
+            if (navMenuContainer && navMenuContainer.classList.contains('active')) {
+                navMenuContainer.classList.remove('active');
                 if (hamburger) {
                     hamburger.setAttribute('aria-expanded', 'false');
                 }

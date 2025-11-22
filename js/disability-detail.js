@@ -2,7 +2,39 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Disability detail page loaded');
     loadDisabilityDetail();
+    setupNavToggle();
 });
+
+// Mobile nav toggle for disability detail page
+const hamburger = document.getElementById('hamburger');
+const navMenuContainer = document.querySelector('.nav-menu-container');
+
+function setupNavToggle() {
+    if (!hamburger) return;
+
+    hamburger.addEventListener('click', function() {
+        if (navMenuContainer) {
+            navMenuContainer.classList.toggle('active');
+        }
+        hamburger.setAttribute('aria-expanded', hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+    });
+
+    // Close when clicking nav links
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (navMenuContainer) navMenuContainer.classList.remove('active');
+            if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(event) {
+        if (navMenuContainer && hamburger && !navMenuContainer.contains(event.target) && !hamburger.contains(event.target) && navMenuContainer.classList.contains('active')) {
+            navMenuContainer.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
 function loadDisabilityDetail() {
     const urlParams = new URLSearchParams(window.location.search);
