@@ -1,10 +1,8 @@
 // DOM Elements for accessibility
 const increaseFontBtn = document.getElementById('increaseFont');
 const decreaseFontBtn = document.getElementById('decreaseFont');
-const highContrastBtn = document.getElementById('highContrast');
 const resetAccessibilityBtn = document.getElementById('resetAccessibility');
 const footerIncreaseFont = document.getElementById('footerIncreaseFont');
-const footerHighContrast = document.getElementById('footerHighContrast');
 
 // Toolbar state
 let isToolbarExpanded = false;
@@ -20,16 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load saved accessibility settings
 function loadAccessibilitySettings() {
-    const largeText = localStorage.getItem('largeText') === 'true';
-    const highContrast = localStorage.getItem('highContrast') === 'true';
-    
-    if (largeText) {
-        document.body.classList.add('large-text');
+    // Load stored root font size (px). If not set, don't change the browser default.
+    const rootFontSize = localStorage.getItem('rootFontSize');
+    if (rootFontSize) {
+        document.documentElement.style.fontSize = rootFontSize;
     }
-    if (highContrast) {
-        document.body.classList.add('high-contrast');
-    }
-    
+
     updateAccessibilityButtons();
 }
 
@@ -139,16 +133,7 @@ function setupAccessibilityControls() {
         });
     }
 
-    // Toggle high contrast
-    if (highContrastBtn) {
-        highContrastBtn.addEventListener('click', function() {
-            toggleHighContrast();
-            closeToolbar();
-        });
-    }
-    if (footerHighContrast) {
-        footerHighContrast.addEventListener('click', toggleHighContrast);
-    }
+    // (High contrast removed)
 
     // Reset all accessibility settings
     if (resetAccessibilityBtn) {
@@ -161,65 +146,57 @@ function setupAccessibilityControls() {
 
 // Font size functions
 function increaseFontSize() {
-    document.body.classList.add('large-text');
-    localStorage.setItem('largeText', 'true');
+    // Increase root font-size so rem-based sizes scale across the site
+    const current = window.getComputedStyle(document.documentElement).fontSize;
+    const currentPx = parseFloat(current);
+    const next = Math.min(currentPx + 2, 24); // cap at 24px
+    document.documentElement.style.fontSize = next + 'px';
+    localStorage.setItem('rootFontSize', next + 'px');
     updateAccessibilityButtons();
-    showAccessibilityFeedback('Font size increased');
 }
 
 function decreaseFontSize() {
-    document.body.classList.remove('large-text');
-    localStorage.setItem('largeText', 'false');
+    const current = window.getComputedStyle(document.documentElement).fontSize;
+    const currentPx = parseFloat(current);
+    const next = Math.max(currentPx - 2, 12); // don't go below 12px
+    document.documentElement.style.fontSize = next + 'px';
+    localStorage.setItem('rootFontSize', next + 'px');
     updateAccessibilityButtons();
-    showAccessibilityFeedback('Font size decreased');
 }
 
-// High contrast functions
-function toggleHighContrast() {
-    document.body.classList.toggle('high-contrast');
-    const isHighContrast = document.body.classList.contains('high-contrast');
-    localStorage.setItem('highContrast', isHighContrast.toString());
-    updateAccessibilityButtons();
-    showAccessibilityFeedback(isHighContrast ? 'High contrast enabled' : 'High contrast disabled');
-}
+// High contrast removed: controls and styles no longer toggle from JS
 
 // Reset accessibility
 function resetAccessibility() {
-    document.body.classList.remove('large-text', 'high-contrast');
-    localStorage.setItem('largeText', 'false');
-    localStorage.setItem('highContrast', 'false');
+    // Reset root font-size and remove custom setting
+    document.documentElement.style.fontSize = '';
+    localStorage.removeItem('rootFontSize');
     updateAccessibilityButtons();
     showAccessibilityFeedback('Accessibility settings reset');
 }
 
 // Update button states
 function updateAccessibilityButtons() {
-    const isLargeText = document.body.classList.contains('large-text');
-    const isHighContrast = document.body.classList.contains('high-contrast');
-    
+    // Determine whether a custom root font size is set
+    const rootFontSize = document.documentElement.style.fontSize || localStorage.getItem('rootFontSize');
+    const isCustomSize = !!rootFontSize;
+
     // Update main accessibility buttons
     if (increaseFontBtn) {
-        increaseFontBtn.classList.toggle('active', isLargeText);
-        increaseFontBtn.setAttribute('aria-pressed', isLargeText);
+        increaseFontBtn.classList.toggle('active', isCustomSize);
+        increaseFontBtn.setAttribute('aria-pressed', isCustomSize);
     }
     if (decreaseFontBtn) {
-        decreaseFontBtn.classList.toggle('active', !isLargeText);
-        decreaseFontBtn.setAttribute('aria-pressed', !isLargeText);
-    }
-    if (highContrastBtn) {
-        highContrastBtn.classList.toggle('active', isHighContrast);
-        highContrastBtn.setAttribute('aria-pressed', isHighContrast);
+        decreaseFontBtn.classList.toggle('active', isCustomSize);
+        decreaseFontBtn.setAttribute('aria-pressed', isCustomSize);
     }
     if (resetAccessibilityBtn) {
-        resetAccessibilityBtn.classList.toggle('active', isLargeText || isHighContrast);
+        resetAccessibilityBtn.classList.toggle('active', isCustomSize);
     }
     
     // Update footer buttons
     if (footerIncreaseFont) {
-        footerIncreaseFont.classList.toggle('active', isLargeText);
-    }
-    if (footerHighContrast) {
-        footerHighContrast.classList.toggle('active', isHighContrast);
+        footerIncreaseFont.classList.toggle('active', isCustomSize);
     }
 }
 

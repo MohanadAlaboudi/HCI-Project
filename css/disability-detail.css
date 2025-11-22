@@ -92,11 +92,7 @@
 }
 
 .info-section h3::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--accent-color);
-    border-radius: 50%;
+    display: none;
 }
 
 /* Lists Styling */

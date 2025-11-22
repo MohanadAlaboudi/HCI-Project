@@ -20,17 +20,7 @@
 }
 
 /* High Contrast Mode Variables */
-.high-contrast {
-    --primary-color: #000000;
-    --secondary-color: #333333;
-    --accent-color: #ffff00;
-    --light-color: #ffffff;
-    --dark-color: #000000;
-    --text-color: #000000;
-    --text-muted: #000000;
-    --border-color: #000000;
-    --box-shadow: 0 0 0 2px #ffff00;
-}
+/* High contrast mode removed. */
 
 /* Large Text Mode */
 .large-text {
@@ -1335,19 +1325,7 @@ footer {
     background: var(--success-color);
 }
 
-/* High contrast mode adjustments for toolbar */
-.high-contrast .accessibility-toggle {
-    background: var(--accent-color);
-    border: 2px solid white;
-}
-
-.high-contrast .accessibility-controls {
-    border: 2px solid var(--accent-color);
-}
-
-.high-contrast .accessibility-controls button {
-    border: 1px solid white;
-}
+/* High contrast mode removed; related toolbar adjustments disabled. */
 
 /* Large text mode adjustments */
 .large-text .accessibility-controls button {
