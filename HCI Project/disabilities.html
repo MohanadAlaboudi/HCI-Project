@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore various disabilities - Comprehensive information about different types of disabilities">
+    <meta name="keywords" content="disabilities, autism, alzheimer, hearing, visual, physical, down syndrome, cerebral palsy, ADHD, dyslexia, epilepsy, speech, intellectual">
+    <title>Disabilities - Assistive Disabilities Awareness</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <div class="accessibility-buttons">
+            <button id="increaseFont" title="Increase Font Size">A+</button>
+            <button id="decreaseFont" title="Decrease Font Size">A-</button>
+            <button id="resetAccessibility" title="Reset Accessibility Settings">Reset</button>
+        </div>
+    </div>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">♿</span>
+                Disability Awareness
+            </a>
+            <div class="hamburger" id="hamburger" aria-label="Toggle menu">☰</div>
+            <nav class="nav-menu-container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="disabilities.html" class="active">Disabilities</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <!-- SEARCH BAR REMOVED FROM HERE -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Rest of disabilities.html content remains the same -->
+    <!-- ... -->
+    <!-- Disabilities Page Hero -->
+    <section class="page-hero" aria-labelledby="disabilities-hero-title">
+        <div class="container">
+            <h1 id="disabilities-hero-title">Understanding Disabilities</h1>
+            <p>Comprehensive information about various disabilities, including interaction tips, support strategies, and resources for each condition.</p>
+            <div class="hero-buttons">
+                <a href="#disabilities-grid" class="btn btn-primary">Explore All Disabilities</a>
+                <a href="#search-section" class="btn btn-secondary">Search Disabilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search-section" class="search-section" aria-labelledby="search-title">
+        <div class="container">
+            <h2 id="search-title" class="section-title">Find Specific Information</h2>
+            <p class="section-subtitle">Search through our comprehensive database of disabilities and support information</p>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="disabilitiesSearchInput" placeholder="Type to search disabilities (autism, hearing, visual, etc.)" aria-label="Search disabilities">
+                    <button id="disabilitiesSearchButton" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+            <div class="search-results-info" id="searchResultsInfo" style="display: none;">
+                <p id="resultsCount"></p>
+                <button id="clearSearch" class="btn-clear">Clear Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats" aria-labelledby="stats-title">
+        <div class="container">
+            <h2 id="stats-title" class="sr-only">Disability Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-text">Detailed Disability Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-text">Interaction Tips & Strategies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-text">Trusted Resources & Organizations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disabilities Grid Section -->
+    <section id="disabilities-grid" class="disabilities-listing" aria-labelledby="disabilities-title">
+        <div class="container">
+            <h2 id="disabilities-title" class="section-title">Disability Categories</h2>
+            <p class="section-subtitle">Click on any disability to learn detailed information about interaction, communication, and support strategies.</p>
+            
+            <div class="disabilities-grid" id="disabilitiesGrid">
+                <!-- Disability cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Information -->
+    <section class="support-info" aria-labelledby="support-title">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-text">
+                    <h2 id="support-title">Need More Specific Information?</h2>
+                    <p>If you're looking for information about a specific disability not listed here, or need personalized guidance, our team is here to help.</p>
+                    <p>We're continuously updating our resources to provide the most current and comprehensive information about disabilities and support strategies.</p>
+                    <div class="support-buttons">
+                        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                        <a href="about.html" class="btn btn-secondary">About Our Mission</a>
+                    </div>
+                </div>
+                <div class="support-image">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">💡</span>
+                        <p>Continuous Learning & Updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are a team dedicated to promoting disability awareness and inclusion through accessible education and resources.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="disabilities.html">Disabilities</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@disabilityawareness.org</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Project Info</h3>
+                    <p>SE365 - Human Computer Interaction</p>
+                    <p>Section 1436</p>
+                    <p>Dr. Wajdi ALJEDAANI</p>
+                </div>
+            </div>
+                <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Assistive Disabilities Awareness Website. All rights reserved.</p>
+                    <p>Mohanad Abdulaziz Alaboudi (221110940) & Turki Khaled Almarri (222211579)</p>
+                </div>
+                <div class="footer-accessibility">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/disability-data.js"></script>
+    <script src="js/disabilities-page.js"></script>
+    <script src="js/accessibility.js"></script>
+</body>
+</html>
